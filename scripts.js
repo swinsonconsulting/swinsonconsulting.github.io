@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     const textLines = [
         "<span class='bold'>Swinson Consulting</span>",
-        "We offer 30+ years of IT Consulting,",
-        "Accounting Services,",
-        "and Edutainment Videos production.",
-        "<br>For more information, contact us at <a href='mailto:info@swinsonconsulting.com'>info@swinsonconsulting.com</a>."
+        "",
+        "Over 30 years of experience in:",
+        "IT stuff,",
+        "accounting services,",
+        "and edutainment video production.",
+        "",
+        "<br>For more information, contact us at:",
+        "<a href='mailto:info@swinsonconsulting.com'>info@swinsonconsulting.com</a>."
     ];
 
     const textElement = document.getElementById("text");
