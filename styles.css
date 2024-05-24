@@ -1,0 +1,43 @@
+body {
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 0 10px #00FF00;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cursor {
+    display: inline-block;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.bold {
+    font-weight: bold;
+    color: #00FF80; /* Lighter green for better visibility */
+}
+
+a {
+    color: #00FF00; /* Match link color to the text color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover for better UX */
+}
