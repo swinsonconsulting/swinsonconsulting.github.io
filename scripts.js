@@ -1,14 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const textLines = [
         "<span class='bold'>Swinson Consulting</span>",
-        "",
-        "Over 30 years of experience in:",
-        "IT stuff,",
+        "We offer over 30 years of IT consulting,",
         "accounting services,",
         "and edutainment video production.",
-        "",
-        "<br>For more information, contact us at:",
-        "<a href='mailto:info@swinsonconsulting.com'>info@swinsonconsulting.com</a>."
+        "<br>For more information, contact us at <a href='mailto:info@swinsonconsulting.com'>info@swinsonconsulting.com</a>."
     ];
 
     const textElement = document.getElementById("text");
@@ -25,13 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 currentText += line.charAt(charIndex);
                 textElement.innerHTML = currentText;
                 charIndex++;
-                setTimeout(typeCharacter, 100); // Adjust the speed here (100ms per character)
+                setTimeout(typeCharacter, 50); // Speed up the character printing (50ms per character)
             } else {
                 currentText += '<br>';
                 textElement.innerHTML = currentText;
                 charIndex = 0;
                 lineIndex++;
-                setTimeout(typeCharacter, 500); // Delay before next line starts
+                setTimeout(typeCharacter, 300); // Speed up the delay before next line starts (300ms)
             }
         } else {
             cursorElement.style.display = 'none'; // Hide cursor after typing is done
