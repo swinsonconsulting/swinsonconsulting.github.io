@@ -12,31 +12,30 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const textElement = document.getElementById("text");
-    const hiddenElement = document.createElement("div");
-    hiddenElement.style.display = "none";
-    document.body.appendChild(hiddenElement);
     const cursorElement = document.getElementById("cursor");
 
     let lineIndex = 0;
     let charIndex = 0;
     let currentText = '';
+    let tempText = '';
 
     function typeCharacter() {
         if (lineIndex < textLines.length) {
             let line = textLines[lineIndex];
             if (charIndex < line.length) {
-                currentText += line.charAt(charIndex);
-                hiddenElement.innerHTML = currentText;
+                tempText += line.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeCharacter, 50); // Speed up the character printing (50ms per character)
+                setTimeout(typeCharacter, 40); // Speed up the character printing (50ms per character)
             } else {
-                currentText += '<br>';
-                hiddenElement.innerHTML = currentText;
-                textElement.innerHTML = hiddenElement.innerHTML;
+                currentText += tempText + '<br>';
+                textElement.innerHTML = currentText;
+                tempText = '';
                 charIndex = 0;
                 lineIndex++;
-                setTimeout(typeCharacter, 200); // Speed up the delay before next line starts (300ms)
+                setTimeout(typeCharacter, 100); // Speed up the delay before next line starts (200ms)
             }
+            // Update the visible text with the new temporary text, excluding HTML tags in progress
+            textElement.innerHTML = currentText + tempText.replace(/<[^>]*$/g, '');
         } else {
             cursorElement.style.display = 'none'; // Hide cursor after typing is done
         }
@@ -45,3 +44,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // Start the typing effect
     setTimeout(typeCharacter, 500); // Initial delay before starting the typing effect
 });
+
