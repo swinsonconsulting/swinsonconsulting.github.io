@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const textElement = document.getElementById("text");
+    const hiddenElement = document.createElement("div");
+    hiddenElement.style.display = "none";
+    document.body.appendChild(hiddenElement);
     const cursorElement = document.getElementById("cursor");
 
     let lineIndex = 0;
@@ -23,15 +26,16 @@ document.addEventListener("DOMContentLoaded", function() {
             let line = textLines[lineIndex];
             if (charIndex < line.length) {
                 currentText += line.charAt(charIndex);
-                textElement.innerHTML = currentText;
+                hiddenElement.innerHTML = currentText;
                 charIndex++;
-                setTimeout(typeCharacter, 100); // Adjust the speed here (100ms per character)
+                setTimeout(typeCharacter, 50); // Speed up the character printing (50ms per character)
             } else {
                 currentText += '<br>';
-                textElement.innerHTML = currentText;
+                hiddenElement.innerHTML = currentText;
+                textElement.innerHTML = hiddenElement.innerHTML;
                 charIndex = 0;
                 lineIndex++;
-                setTimeout(typeCharacter, 500); // Delay before next line starts
+                setTimeout(typeCharacter, 200); // Speed up the delay before next line starts (300ms)
             }
         } else {
             cursorElement.style.display = 'none'; // Hide cursor after typing is done
